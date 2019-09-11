@@ -18,8 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Display a message box to the user
     const words = [];
-    words[1] = 'Hello';
-    words[2] = 'Angular!';
+    words[0] = 'Hello';
+    words[1] = 'Angular!';
     vscode.window.showInformationMessage(words.join(', '));
   });
 
