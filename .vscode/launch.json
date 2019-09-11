@@ -11,6 +11,7 @@
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": [
+        "${workspaceFolder}/fixtures/simple-component/",
         "--disable-extensions",
         "--extensionDevelopmentPath=${workspaceFolder}"
       ],
