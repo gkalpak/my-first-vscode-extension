@@ -1,6 +1,7 @@
 .vscode/**
 .vscode-test/**
 .workshop-infra/**
+fixtures/**
 out/test/**
 src/**
 .gitignore
