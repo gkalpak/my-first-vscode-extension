@@ -17,7 +17,10 @@ export function activate(context: vscode.ExtensionContext) {
     // The code you place here will be executed every time your command is executed
 
     // Display a message box to the user
-    vscode.window.showInformationMessage('Hello Angular!');
+    const words = [];
+    words[1] = 'Hello';
+    words[2] = 'Angular!';
+    vscode.window.showInformationMessage(words.join(', '));
   });
 
   context.subscriptions.push(disposable);
