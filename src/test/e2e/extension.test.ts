@@ -36,7 +36,7 @@ suite('Extension Test Suite', () => {
       const [hover] = await vscode.commands.executeCommand(
           'vscode.executeHoverProvider',
           vscode.Uri.file(filePath),
-          new vscode.Position(5, 20),
+          new vscode.Position(4, 20),
       ) as vscode.Hover[];
       const hoverContents = (hover.contents[0] as vscode.MarkdownString).value;
 
