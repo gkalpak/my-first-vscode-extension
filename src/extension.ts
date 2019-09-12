@@ -31,11 +31,17 @@ export function activate(context: vscode.ExtensionContext) {
     pattern: '**/*.component.ts',
     scheme: 'file',
   };
+  const templateUrlIntellisenseProvider = new TemplateUrlIntellisenseProvider();
 
   // Register a `HoverProvider` for Angular component templates and add the registration to the
   // extension's subscriptions (to be automatically cleaned up on deactivation).
   context.subscriptions.push(vscode.languages.registerHoverProvider(
-      componentTsFileSelector, new TemplateUrlIntellisenseProvider()));
+      componentTsFileSelector, templateUrlIntellisenseProvider));
+
+  // Register a `DefinitionProvider` for Angular component templates and add the registration to the
+  // extension's subscriptions (to be automatically cleaned up on deactivation).
+  context.subscriptions.push(vscode.languages.registerDefinitionProvider(
+      componentTsFileSelector, templateUrlIntellisenseProvider));
 }
 
 // this method is called when your extension is deactivated
