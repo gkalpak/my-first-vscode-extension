@@ -29,5 +29,25 @@ suite('Extension', () => {
 
       assert(spy.calledWith('extension.helloWorld', sinon.match.func));
     });
+
+    test('adds the `extension.helloWorld` command registration to subscriptions', () => {
+      const mockRegistration = {dispose: () => undefined};
+      sandbox.stub(vscode.commands, 'registerCommand').returns(mockRegistration);
+      activate(mockContext);
+
+      assert.strictEqual(mockContext.subscriptions[0], mockRegistration);
+    });
+
+    test('shows a notification when running the `extension.helloWorld` command', () => {
+      const registerCommandSpy = sandbox.stub(vscode.commands, 'registerCommand');
+      const showInformationMessageSpy = sandbox.stub(vscode.window, 'showInformationMessage');
+      activate(mockContext);
+
+      const commandCb = registerCommandSpy.args[0][1];
+      assert(showInformationMessageSpy.notCalled);
+
+      commandCb();
+      assert(showInformationMessageSpy.calledWith('Hello, Angular!'));
+    });
   });
 });
