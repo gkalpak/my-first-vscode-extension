@@ -21,13 +21,15 @@
       "preLaunchTask": "npm: watch"
     },
     {
-      "name": "Extension Tests",
+      "name": "Extension Tests (e2e)",
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": [
+        "${workspaceFolder}/fixtures/simple-component/",
+        "--disable-extensions",
         "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+        "--extensionTestsPath=${workspaceFolder}/out/test/e2e/index"
       ],
       "outFiles": [
         "${workspaceFolder}/out/test/**/*.js"
