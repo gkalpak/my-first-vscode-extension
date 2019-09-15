@@ -27,7 +27,9 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
-    "test": "node ./out/test/runTest.js"
+    "test": "npm run test-unit && npm run test-e2e",
+    "test-e2e": "node ./out/test/runTest.js",
+    "test-unit": "node ./out/test/unit/index.js"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
