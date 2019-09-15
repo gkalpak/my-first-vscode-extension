@@ -34,11 +34,13 @@
   "devDependencies": {
     "@types/glob": "^7.1.1",
     "@types/mocha": "^5.2.6",
+    "@types/mock-require": "^2.0.0",
     "@types/node": "^10.12.21",
     "@types/sinon": "^7.0.13",
     "@types/vscode": "^1.37.0",
     "glob": "^7.1.4",
     "mocha": "^6.1.4",
+    "mock-require": "^3.0.3",
     "sinon": "^7.4.2",
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",

@@ -1,6 +1,12 @@
 import * as path from 'path';
 import * as Mocha from 'mocha';
+import * as mock from 'mock-require';
 import * as glob from 'glob';
+import {mockVscode} from './vscode.mock';
+
+// `vscode` APIs are only provided when running tests through VS Code (i.e. e2e tests).
+// For "standalone" unit tests, we need to mock them.
+mock('vscode', mockVscode);
 
 // Create the mocha test
 const mocha = new Mocha({
