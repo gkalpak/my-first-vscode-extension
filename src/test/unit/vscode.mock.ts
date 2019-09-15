@@ -1,0 +1,3 @@
+// Exports
+export const mockVscode = {
+};
