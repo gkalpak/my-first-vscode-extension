@@ -3,6 +3,11 @@
   "displayName": "My first VS Code extension",
   "description": "A basic VS Code extension for Angular development.",
   "version": "0.0.1",
+  "publisher": "me",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gkalpak/my-first-vscode-extension.git"
+  },
   "engines": {
     "vscode": "^1.37.0"
   },
@@ -29,7 +34,8 @@
     "pretest": "npm run compile",
     "test": "npm run test-unit && npm run test-e2e",
     "test-e2e": "node ./out/test/runTest.js",
-    "test-unit": "node ./out/test/unit/index.js"
+    "test-unit": "node ./out/test/unit/index.js",
+    "vsce-package": "vsce package"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
@@ -44,6 +50,7 @@
     "sinon": "^7.4.2",
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",
+    "vsce": "^1.66.0",
     "vscode-test": "^1.0.2"
   }
 }
