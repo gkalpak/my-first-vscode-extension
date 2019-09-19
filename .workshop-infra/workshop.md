@@ -223,7 +223,7 @@ Looking at specific fields in our basic extension's `package.json`, we have:
 
 - `scripts: { ... }`: A minimal set of npm scripts for compiling the extension (once or in watch mode) and running tests.
 
-- `engines: {vscode: '^1.37.0'}`: This specifies the minimum VS Code version supported by the extension. VS Code will prevent users of older versions from installing the extension, since it might be using VS Code APIs that are not available in their version.
+- `engines: {vscode: '^1.37.0'}`: This specifies the minimum VS Code version supported by the extension. VS Code will prevent users of older versions from installing the extension, since it might be using VS Code APIs that are not available in their version. See [here](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#visual-studio-code-compatibility) for more details.
 
   > 💡 **Tip**<br />
   > The version of `@types/vscode` in `devDependencies` should always match the minimum supported version of VS Code (as specified in `engines.vscode`) to ensure that your extension only uses APIs that will be available at runtime.
@@ -701,10 +701,23 @@ Once again, run the unit tests to confirm that everything still passes.
 **Notes:**<br />
 ...
   - Mention how to install/uninstall and manage extensions from inside VS Code.
+    - [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode)
+    - [vsce](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#vsce), the CLI tool for managing (packaging, publishing, unpublishing) VS Code extensions.
+    - `npm install --save-dev vsce`
+  - Publishing requires an Azure DevOps account. More info: https://code.visualstudio.com/api/working-with-extensions/publishing-extension#publishing-extensions
+  - Packaging: https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions
+    - To test an extension on your local install of VS Code or distribute an extension without publishing it to VS Code MarketPlace.
+    - run vsce package in extension root folder to create such VSIX files.
+    - install the extension with code --install-extension my-extension-0.0.1.vsix.
+    - to share your extension with others privately, you can send them your packaged extension .vsix file.
+  - Add npm script, package extension, install it locally, test it, profit.
   - Notes/Questions:
     - Use webpack? (Maybe just reference the Bundling guide.)
 
-**Experiments:** -
+**Experiments:**
+- Package your extension and share it with a friend or team mate.
+
+- Make a high-quality extension and publish it to the **VS Code Extension Marketplace**.
 
 **Resources:**
 - [](https://code.visualstudio.com/api/working-with-extensions/publishing-extension):<br />
